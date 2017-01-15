@@ -1,14 +1,4 @@
 {
-  "myMongo": {
-    "host": "127.0.0.1",
-    "port": 27017,
-    "url": "mongodb://localhost:27017/myDbName",
-    "database": "myDbName",
-    "password": "",
-    "name": "myMongo",
-    "user": "",
-    "connector": "mongodb"
-  },
   "mysqlDs": {
     "host": "127.0.0.1",
     "port": 3306,

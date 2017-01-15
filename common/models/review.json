@@ -1,0 +1,37 @@
+{
+  "name": "Review",
+  "plural": "Reviews",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date"
+    },
+    "rating": {
+      "type": "number",
+      "required": true
+    },
+    "comments": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "coffeeShop": {
+      "type": "belongsTo",
+      "model": "CoffeeShop",
+      "foreignKey": ""
+    },
+    "reviewer":{
+      "type": "belongsTo",
+      "model": "Reviwer",
+      "foreignKey": "publisherId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
