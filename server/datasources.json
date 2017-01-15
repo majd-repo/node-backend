@@ -8,5 +8,15 @@
     "name": "myMongo",
     "user": "",
     "connector": "mongodb"
+  },
+  "mysqlDs": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "url": "",
+    "database": "messengerDb",
+    "password": "",
+    "name": "mysqlDs",
+    "user": "root",
+    "connector": "mysql"
   }
 }

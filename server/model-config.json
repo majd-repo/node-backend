@@ -14,7 +14,7 @@
     ]
   },
   "CoffeeShop": {
-    "dataSource": "myMongo",
+    "dataSource": "mysqlDs",
     "public": true
   }
 }
