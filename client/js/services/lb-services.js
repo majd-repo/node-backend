@@ -1640,6 +1640,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Review.reviewer() instead.
+            "prototype$__get__reviewer": {
+              url: urlBase + "/Reviews/:id/reviewer",
+              method: "GET",
+            },
+
             /**
              * @ngdoc method
              * @name lbServices.Review#create
@@ -2554,6 +2560,42 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           return action.apply(R, arguments);
         };
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Review#reviewer
+             * @methodOf lbServices.Review
+             *
+             * @description
+             *
+             * Fetches belongsTo relation reviewer.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Reviewer` object.)
+             * </em>
+             */
+        R.reviewer = function() {
+          var TargetResource = $injector.get("Reviewer");
+          var action = TargetResource["::get::Review::reviewer"];
+          return action.apply(R, arguments);
+        };
+
 
         return R;
       }]);
@@ -2585,33 +2627,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Reviewer.reviewers.findById() instead.
-            "prototype$__findById__reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.destroyById() instead.
-            "prototype$__destroyById__reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.updateById() instead.
-            "prototype$__updateById__reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "PUT",
-            },
-
             // INTERNAL. Use Reviewer.reviews.findById() instead.
             "prototype$__findById__reviews": {
               params: {
@@ -2637,31 +2652,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               },
               url: urlBase + "/Reviewers/:id/reviews/:fk",
               method: "PUT",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers() instead.
-            "prototype$__get__reviewers": {
-              isArray: true,
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.create() instead.
-            "prototype$__create__reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.destroyAll() instead.
-            "prototype$__delete__reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.count() instead.
-            "prototype$__count__reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers/count",
-              method: "GET",
             },
 
             // INTERNAL. Use Reviewer.reviews() instead.
@@ -3447,62 +3437,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Reviewer.reviewers.findById() instead.
-            "::findById::Reviewer::reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.destroyById() instead.
-            "::destroyById::Reviewer::reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.updateById() instead.
-            "::updateById::Reviewer::reviewers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Reviewers/:id/reviewers/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers() instead.
-            "::get::Reviewer::reviewers": {
-              isArray: true,
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.create() instead.
-            "::create::Reviewer::reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.createMany() instead.
-            "::createMany::Reviewer::reviewers": {
-              isArray: true,
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.destroyAll() instead.
-            "::delete::Reviewer::reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Reviewer.reviewers.count() instead.
-            "::count::Reviewer::reviewers": {
-              url: urlBase + "/Reviewers/:id/reviewers/count",
+            // INTERNAL. Use Review.reviewer() instead.
+            "::get::Review::reviewer": {
+              url: urlBase + "/Reviews/:id/reviewer",
               method: "GET",
             },
 
@@ -3823,307 +3760,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Reviewer";
 
-    /**
-     * @ngdoc object
-     * @name lbServices.Reviewer.reviewers
-     * @header lbServices.Reviewer.reviewers
-     * @object
-     * @description
-     *
-     * The object `Reviewer.reviewers` groups methods
-     * manipulating `Reviewer` instances related to `Reviewer`.
-     *
-     * Call {@link lbServices.Reviewer#reviewers Reviewer.reviewers()}
-     * to query all related instances.
-     */
-
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer#reviewers
-             * @methodOf lbServices.Reviewer
-             *
-             * @description
-             *
-             * Queries reviewers of Reviewer.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Reviewer` object.)
-             * </em>
-             */
-        R.reviewers = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::get::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#count
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Counts reviewers of Reviewer.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-        R.reviewers.count = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::count::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#create
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Creates a new instance in reviewers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Reviewer` object.)
-             * </em>
-             */
-        R.reviewers.create = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::create::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#createMany
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Creates a new instance in reviewers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Reviewer` object.)
-             * </em>
-             */
-        R.reviewers.createMany = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::createMany::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#destroyAll
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Deletes all reviewers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.reviewers.destroyAll = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::delete::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#destroyById
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Delete a related item by id for reviewers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for reviewers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.reviewers.destroyById = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::destroyById::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#findById
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Find a related item by id for reviewers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for reviewers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Reviewer` object.)
-             * </em>
-             */
-        R.reviewers.findById = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::findById::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Reviewer.reviewers#updateById
-             * @methodOf lbServices.Reviewer.reviewers
-             *
-             * @description
-             *
-             * Update a related item by id for reviewers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for reviewers
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Reviewer` object.)
-             * </em>
-             */
-        R.reviewers.updateById = function() {
-          var TargetResource = $injector.get("Reviewer");
-          var action = TargetResource["::updateById::Reviewer::reviewers"];
-          return action.apply(R, arguments);
-        };
     /**
      * @ngdoc object
      * @name lbServices.Reviewer.reviews

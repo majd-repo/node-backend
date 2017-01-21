@@ -8,12 +8,7 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "reviewers": {
-      "type": "hasMany",
-      "model": "Reviewer",
-      "foreignKey": ""
-    },
-    "reviews": {
+      "reviews": {
       "type": "hasMany",
       "model": "Review",
       "foreignKey": "publisherId"
